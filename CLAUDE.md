@@ -36,23 +36,26 @@ explain-code/
 ## Common commands
 
 ```bash
-# Install dependencies
+# One-time setup: create venv and install dependencies
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+deactivate
 
-# Run with a file
-python explain.py path/to/file.py
+# Run with a file (via shell function — see README setup)
+explain path/to/file.py
 
 # Run via stdin (pipe)
-cat myfile.py | python explain.py
+cat myfile.py | explain
 
 # Ask a specific question about the code
-python explain.py path/to/file.py --question "What does the main function do?"
+explain path/to/file.py --question "What does the main function do?"
 
 # Override the language hint
-python explain.py path/to/file.py --language rust
+explain path/to/file.py --language rust
 
 # Show token usage and estimated cost after response
-python explain.py path/to/file.py --verbose
+explain path/to/file.py --verbose
 ```
 
 ## Coding standards
